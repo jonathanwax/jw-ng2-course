@@ -1,0 +1,16 @@
+<!--<p>-->
+<!--  product-list 2 works!-->
+<!--</p>-->
+<!--<ul>-->
+<!--    <li *ngFor="let product of productList">{{product.name}}</li>-->
+<!--</ul>-->
+<!--<app-product-row *ngFor="let product of productList" [product]="product"></app-product-row>-->
+
+<div class="ui items">
+    <app-product-row 
+      *ngFor="let product of productList" 
+      [product]="product" 
+      (click)='clicked(product)'
+      >
+    </app-product-row>
+  </div>

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../home/ubuntu/workspace/inventory-app/tmp/broccoli_type_script_compiler-input_base_path-1vhCI7i3.tmp/0/src/app/product-list/index.ts"],"names":[],"mappings":";;;;AAAA,iBAAc,0BAA0B,CAAC,EAAA","sourcesContent":["export * from './product-list.component';\n"]}
