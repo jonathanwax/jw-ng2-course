@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 //import  {SampleComponent} from './sample/sample.component'
 import { ProductListComponent } from './product-list/product-list.component'
 import { Product } from './shared/product.model';
+import { ProductService } from './shared/product.service';
 
 // class Product{
 //   name: string;
@@ -14,30 +15,24 @@ import { Product } from './shared/product.model';
   moduleId: module.id,
   selector: 'app-root',
   directives: [ProductListComponent],
+  providers: [ProductService],
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css']
 })
 export class AppComponent {
   products: Product[];
+  sample: any;
 
-  constructor() {
-    this.products = [
-      new Product(
-        'MYSHOES', 'Black Running Shoes',
-        '/resources/images/products/black-shoes.jpg',
-        ['Men', 'Shoes', 'Running Shoes'],
-        109.99),
-      new Product(
-        'NEATOJACKET', 'Blue Jacket',
-        '/resources/images/products/blue-jacket.jpg',
-        ['Women', 'Apparel', 'Jackets & Vests'],
-        238.99),
-      new Product(
-        'NICEHAT', 'A Nice Black Hat',
-        '/resources/images/products/black-hat.jpg',
-        ['Men', 'Accessories', 'Hats'],
-        29.99)
-      ];
+  constructor(public productService: ProductService) {
+    
+    productService.sample
+      .subscribe(
+        result => this.sample = result,
+        error => console.error(error),
+        () => console.log("Done")
+      );
+    
+    // productService.getProducts();
   }
 
   productWasSelected(product: Product): void {
